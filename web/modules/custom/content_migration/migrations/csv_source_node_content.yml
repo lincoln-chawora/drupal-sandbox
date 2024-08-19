@@ -1,0 +1,43 @@
+id: csv_source_node_content
+label: 'Migration content task'
+source:
+  plugin: csv
+  path: modules/custom/content_migration/sources/task-migration-content.csv
+  ids: [id]
+process:
+  type: type
+  title: title
+  field_date/value:
+    plugin: format_date
+    source: date
+    from_format: 'm/d/Y'
+    to_format: 'Y-m-d'
+    settings:
+      validate_format: false # Fix the issue with the incorrect date format
+  body/value:
+    -
+      plugin: dom
+      method: import
+      source: content
+    -
+      plugin: dom_remove
+      selector: //script
+    -
+      plugin: dom
+      method: export
+  field_category:
+    -
+      plugin: existing_term # @TODO:: THIS HAS CODE TO BE REFACTORED.
+      # Destination (Drupal) vocabulary name
+      vocabulary: tags
+      # Source query should return term name
+      source: category
+    -
+      plugin: skip_on_empty
+      method: row
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - csv_source_image_files
+  optional: []

@@ -1,0 +1,44 @@
+# This migration creates file instances of the images.
+id: csv_source_image_files
+label: 'Import images (as files)'
+source:
+  plugin: csv
+  path: modules/custom/content_migration/sources/task-migration-content.csv
+  ids: [id]
+  constants:
+    DRUPAL_FILE_DIRECTORY: 'public://images/'
+    image_suffix: '.jpg'
+process:
+  img_src_values:
+    - plugin: dom
+      method: import
+      source: content
+    - plugin: custom_dom_select
+      selector: //img
+  pseudo_destination_filename:
+    -
+      plugin: concat
+      source:
+        - id
+        - type
+        - constants/image_suffix
+  pseudo_destination_path:
+    -
+      plugin: concat
+      source:
+        - constants/DRUPAL_FILE_DIRECTORY
+        - '@pseudo_destination_filename'
+  uri:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: '@img_src_values/src' # The image url in the data row.
+    -
+      plugin: file_copy
+      source:
+        - '@img_src_values/src' # The image url in the data row.
+        - '@pseudo_destination_path'
+      file_exists: rename
+      move: false
+destination:
+  plugin: 'entity:file'

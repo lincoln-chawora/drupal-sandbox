@@ -1,0 +1,21 @@
+id: csv_source_test
+label: 'Migration content TEST'
+source:
+  plugin: csv
+  path: modules/custom/content_migration/sources/task-migration-content.csv
+  ids: [id]
+process:
+  img_src_values:
+    - plugin: dom
+      method: import
+      source: content
+    - plugin: dom_select
+      selector: //img/@src
+  title: title
+  field_test:
+    plugin: skip_on_empty
+    method: process
+    source: '@img_src_values'
+destination:
+  plugin: 'entity:node'
+  default_bundle: article
