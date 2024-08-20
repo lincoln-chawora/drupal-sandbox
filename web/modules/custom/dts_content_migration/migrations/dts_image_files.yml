@@ -23,10 +23,6 @@ process:
         - id
         - type
         - constants/image_suffix
-    -
-      plugin: skip_on_empty
-      method: row
-      message: 'Cannot import empty image filename.'
   # Create destination path to be used by url combining public directory with file name.
   pseudo_destination_path:
     -
@@ -40,7 +36,6 @@ process:
       plugin: skip_on_empty
       method: row
       source: '@pseudo_img_src_values/src'
-      message: 'No uri found'
     -
       plugin: file_copy
       source:

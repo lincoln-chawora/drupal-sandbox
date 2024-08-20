@@ -25,8 +25,7 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_sandbox": "^1.1",
         "drupal/migrate_source_csv": "^3.6",
-        "drupal/migrate_tools": "^6.0",
-        "drupal/remote_stream_wrapper": "^2.1"
+        "drupal/migrate_tools": "^6.0"
     },
     "conflict": {
         "drupal/drupal": "*"

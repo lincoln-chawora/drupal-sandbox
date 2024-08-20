@@ -27,7 +27,7 @@ ddev drush uli
 
 ## Running the migration
 ```bash
-ddev drush mim dts_node_content --execute-dependencies && ddev drush cr
+ddev drush migrate:import dts_node_content --execute-dependencies && ddev drush cr
 ```
 
 ## Other Details
