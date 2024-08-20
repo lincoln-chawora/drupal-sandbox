@@ -3,13 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.article
+    - node.type.blog
+    - node.type.event
     - node.type.page
     - taxonomy.vocabulary.tags
   module:
     - contextual
     - file
     - node
-    - path
     - system
     - taxonomy
     - toolbar
@@ -24,17 +26,54 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+  - 'access taxonomy overview'
   - 'access toolbar'
-  - 'administer url aliases'
+  - 'create article content'
+  - 'create blog content'
+  - 'create event content'
   - 'create page content'
   - 'create terms in tags'
-  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete all taxonomy revisions'
+  - 'delete any article content'
+  - 'delete any blog content'
+  - 'delete any event content'
+  - 'delete any file'
+  - 'delete any page content'
+  - 'delete article revisions'
+  - 'delete blog revisions'
+  - 'delete event revisions'
+  - 'delete own article content'
+  - 'delete own blog content'
+  - 'delete own event content'
   - 'delete own files'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'delete term revisions in tags'
+  - 'delete terms in tags'
+  - 'edit any article content'
+  - 'edit any blog content'
+  - 'edit any event content'
+  - 'edit any page content'
+  - 'edit own article content'
+  - 'edit own blog content'
+  - 'edit own event content'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'revert all taxonomy revisions'
+  - 'revert article revisions'
+  - 'revert blog revisions'
+  - 'revert event revisions'
+  - 'revert page revisions'
+  - 'revert term revisions in tags'
   - 'view all revisions'
+  - 'view all taxonomy revisions'
+  - 'view article revisions'
+  - 'view blog revisions'
+  - 'view event revisions'
   - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view term revisions in tags'
   - 'view the administration theme'
+  - 'view vocabulary labels'
