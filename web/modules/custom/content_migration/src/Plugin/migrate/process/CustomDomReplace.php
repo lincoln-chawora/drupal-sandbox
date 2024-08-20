@@ -8,6 +8,8 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
+ * Replace img src elements and remove script tags.
+ *
  * @MigrateProcessPlugin(
  *   id = "custom_dom_replace"
  * )

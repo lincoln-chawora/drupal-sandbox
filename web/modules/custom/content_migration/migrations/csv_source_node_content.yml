@@ -4,16 +4,30 @@ source:
   plugin: csv
   path: modules/custom/content_migration/sources/task-migration-content.csv
   ids: [id]
+  constants:
+    log_message: 'Error migrating date due to invalid date format: '
 process:
   type: type
   title: title
-  field_date/value:
-    - plugin: format_date
+  validated_date:
+    - plugin: validate_date
       source: date
+  field_date/value:
+    - plugin: skip_on_empty
+      method: process
+      source: '@validated_date'
+    - plugin: format_date
       from_format: 'm/d/Y'
       to_format: 'Y-m-d'
-      settings:
-        validate_format: false
+  revision_log:
+    plugin: if_condition
+    source: '@validated_date'
+    condition: empty
+    do_process:
+      plugin: concat
+      source:
+        - constants/log_message
+        - date
   image_file_id:
     plugin: migration_lookup
     migration: csv_source_image_files

@@ -11,7 +11,7 @@ use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Check if term exists and create new if doesn't.
+ * Check if term exists and create new one if it doesn't.
  *
  * @MigrateProcessPlugin(
  *   id = "existing_term"

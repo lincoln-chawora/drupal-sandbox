@@ -2,7 +2,6 @@
 
 namespace Drupal\content_migration\Plugin\migrate\process;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileUrlGenerator;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\migrate\MigrateExecutableInterface;
@@ -11,6 +10,8 @@ use Drupal\migrate\Row;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
+ * Convert file uri to relative url.
+ *
  * @MigrateProcessPlugin(
  *   id = "file_uri_to_url"
  * )

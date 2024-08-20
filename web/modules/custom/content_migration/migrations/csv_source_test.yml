@@ -4,18 +4,27 @@ source:
   plugin: csv
   path: modules/custom/content_migration/sources/task-migration-content.csv
   ids: [id]
+  constants:
+    SOURCE_DOMAIN: 'https://drupal-test-site.ddev.site/'
+    DRUPAL_FILE_DIRECTORY: 'public://images/'
 process:
-  img_src_values:
-    - plugin: dom
-      method: import
-      source: content
-    - plugin: dom_select
-      selector: //img/@src
   title: title
-  field_test:
-    plugin: skip_on_empty
-    method: process
-    source: '@img_src_values'
+  image_file_id:
+    plugin: migration_lookup
+    migration: csv_source_image_files
+    source: id
+  image_file_uri:
+    plugin: entity_value
+    source: '@image_file_id'
+    entity_type: file
+    field_name: uri
+  image_file_path:
+    plugin: file_uri_to_url
+    source: '@image_file_uri'
 destination:
   plugin: 'entity:node'
   default_bundle: article
+migration_dependencies:
+  required:
+    - csv_source_image_files
+  optional: []

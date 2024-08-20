@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c32ade3f788888bc96e0683e446b17e",
+    "content-hash": "ebce772898436d79a950af45eb90533a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -901,6 +901,98 @@
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core."
         },
         {
+            "name": "drupal/migrate_conditions",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migrate_conditions.git",
+                "reference": "2.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migrate_conditions-2.2.0.zip",
+                "reference": "2.2.0",
+                "shasum": "b969de27f3fa9075d03802d64d87f1bf0599a6be"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.2.0",
+                    "datestamp": "1719236630",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "danflanagan8",
+                    "homepage": "https://www.drupal.org/user/3615359"
+                }
+            ],
+            "description": "Provides framework of conditions plugins and process plugins that use them",
+            "homepage": "https://www.drupal.org/project/migrate_conditions",
+            "support": {
+                "source": "https://git.drupalcode.org/project/migrate_conditions"
+            }
+        },
+        {
+            "name": "drupal/migrate_file",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migrate_file.git",
+                "reference": "2.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migrate_file-2.1.2.zip",
+                "reference": "2.1.2",
+                "shasum": "3febc85243c9a67991db102a10c6d81c0bea07c5"
+            },
+            "require": {
+                "drupal/core": "^9 | ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.2",
+                    "datestamp": "1674948365",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "drclaw",
+                    "homepage": "https://www.drupal.org/user/823702"
+                }
+            ],
+            "description": "Additional support for migrating files including downloading remote files and using remote uris (without download)",
+            "homepage": "https://www.drupal.org/project/migrate_file",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/migrate_file",
+                "issues": "https://www.drupal.org/project/issues/migrate_file"
+            }
+        },
+        {
             "name": "drupal/migrate_plus",
             "version": "6.0.4",
             "source": {
@@ -1133,6 +1225,50 @@
                 "source": "https://git.drupalcode.org/project/migrate_tools",
                 "issues": "https://www.drupal.org/project/issues/migrate_tools",
                 "slack": "#migrate"
+            }
+        },
+        {
+            "name": "drupal/remote_stream_wrapper",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/remote_stream_wrapper.git",
+                "reference": "2.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/remote_stream_wrapper-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "a6cf32a6724911d40dd52ec952f39865810df9a7"
+            },
+            "require": {
+                "drupal/core": "^10.3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.0",
+                    "datestamp": "1720988593",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                }
+            ],
+            "description": "Provides the ability to create Drupal file entities with HTTP and HTTPS URIs without saving them to the local filesystem.",
+            "homepage": "https://www.drupal.org/project/remote_stream_wrapper",
+            "support": {
+                "source": "https://git.drupalcode.org/project/remote_stream_wrapper"
             }
         },
         {
@@ -6762,6 +6898,75 @@
                 "source": "https://github.com/drupal/core-dev/tree/10.3.2"
             },
             "time": "2024-07-04T10:19:29+00:00"
+        },
+        {
+            "name": "drupal/migrate_devel",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migrate_devel.git",
+                "reference": "8.x-2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migrate_devel-8.x-2.3.zip",
+                "reference": "8.x-2.3",
+                "shasum": "2e8efc7c16f9c3d830444a6af674dd3d511eaa69"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10"
+            },
+            "conflict": {
+                "drush/drush": "<9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.3",
+                    "datestamp": "1698392974",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "aczietlow",
+                    "homepage": "https://www.drupal.org/user/1616656"
+                },
+                {
+                    "name": "andrewmacpherson",
+                    "homepage": "https://www.drupal.org/user/265648"
+                },
+                {
+                    "name": "batigolix",
+                    "homepage": "https://www.drupal.org/user/22175"
+                },
+                {
+                    "name": "Derimagia",
+                    "homepage": "https://www.drupal.org/user/819640"
+                },
+                {
+                    "name": "fabianderijk",
+                    "homepage": "https://www.drupal.org/user/278745"
+                }
+            ],
+            "description": "Migrate Development Tools",
+            "homepage": "https://www.drupal.org/project/migrate_devel",
+            "support": {
+                "source": "https://git.drupalcode.org/project/migrate_devel",
+                "issues": "https://www.drupal.org/project/issues/migrate_devel"
+            }
         },
         {
             "name": "drush/drush",
