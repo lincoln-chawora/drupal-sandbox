@@ -1,0 +1,68 @@
+id: dts_node_content
+label: 'Create node entities based on each row of CSV file.'
+source:
+  plugin: csv
+  path: modules/custom/dts_content_migration/sources/task-migration-content.csv
+  ids: [id]
+  constants:
+    log_message: 'Error migrating date due to invalid date format: '
+process:
+  # Set node type based on type field.
+  type: type
+  title: title
+  # Validate date, if the date isn't valid return empty value, so it can be skipped conditionally used later.
+  pseudo_validated_date:
+    - plugin: validate_date
+      source: date
+  # Set date field value after formatting it to expected format if it exists.
+  field_date/value:
+    - plugin: skip_on_empty
+      method: process
+      source: '@pseudo_validated_date'
+    - plugin: format_date
+      from_format: 'm/d/Y'
+      to_format: 'Y-m-d'
+  # Get image file id from the image files migration.
+  pseudo_image_file_id:
+    plugin: migration_lookup
+    migration: dts_image_files
+    source: id
+  # Get the file entities uri.
+  pseudo_image_file_uri:
+    plugin: entity_value
+    source: '@pseudo_image_file_id'
+    entity_type: file
+    field_name: uri
+  pseudo_image_file_path:
+    plugin: file_uri_to_url
+    source: '@pseudo_image_file_uri'
+  # Set body field value after processing it by add local image file paths and removing script tags.
+  body/value:
+    -
+      plugin: custom_dom_replace
+      source: content
+  # Set body field format to ensure correct markup is being used.
+  body/format:
+    plugin: default_value
+    default_value: basic_html
+  # Set category field value with category term from csv file.
+  field_category:
+    plugin: existing_term
+    vocabulary: tags
+    source: category
+  # Set revision log message if date is empty.
+  revision_log:
+    plugin: if_condition
+    source: '@pseudo_validated_date'
+    condition: empty
+    do_process:
+      plugin: concat
+      source:
+        - constants/log_message
+        - date
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - dts_image_files
+  optional: []

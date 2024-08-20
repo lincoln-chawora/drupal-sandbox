@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\content_migration\Plugin\migrate\process;
+namespace Drupal\dts_content_migration\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\Row;

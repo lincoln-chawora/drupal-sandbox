@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\content_migration\Plugin\migrate\process;
+namespace Drupal\dts_content_migration\Plugin\migrate\process;
 
 use Drupal\Core\File\FileUrlGenerator;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -68,7 +68,7 @@ class FileUriToUrl extends ProcessPluginBase implements ContainerFactoryPluginIn
    *   The destination property.
    *
    * @return mixed
-   *   The transformed value (absolute URL or relative path).
+   *   The transformed value (relative path).
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     if (empty($value['value']) && $this->isPipelineStopped()) {

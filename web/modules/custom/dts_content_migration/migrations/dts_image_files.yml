@@ -1,20 +1,21 @@
-# This migration creates file instances of the images.
-id: csv_source_image_files
-label: 'Import images (as files)'
+id: dts_image_files
+label: 'Create file entities for images and add them into images directory.'
 source:
   plugin: csv
-  path: modules/custom/content_migration/sources/task-migration-content.csv
+  path: modules/custom/dts_content_migration/sources/task-migration-content.csv
   ids: [id]
   constants:
     DRUPAL_FILE_DIRECTORY: 'public://images/'
     image_suffix: '.jpg'
 process:
-  img_src_values:
+  # Get image src values from csv content field.
+  pseudo_img_src_values:
     - plugin: dom
       method: import
       source: content
     - plugin: custom_dom_select
       selector: //img
+  # Create file name using id and node type, also append file extension to file name.
   pseudo_destination_filename:
     -
       plugin: concat
@@ -26,22 +27,24 @@ process:
       plugin: skip_on_empty
       method: row
       message: 'Cannot import empty image filename.'
+  # Create destination path to be used by url combining public directory with file name.
   pseudo_destination_path:
     -
       plugin: concat
       source:
         - constants/DRUPAL_FILE_DIRECTORY
         - '@pseudo_destination_filename'
+  # Copy file into set directory.
   uri:
     -
       plugin: skip_on_empty
       method: row
-      source: '@img_src_values/src'
+      source: '@pseudo_img_src_values/src'
       message: 'No uri found'
     -
       plugin: file_copy
       source:
-        - '@img_src_values/src'
+        - '@pseudo_img_src_values/src'
         - '@pseudo_destination_path'
       file_exists: rename
       move: false

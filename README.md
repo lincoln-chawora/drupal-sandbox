@@ -18,7 +18,8 @@ ddev composer install
 ddev drush site:install --existing-config -y
 
 # Create Content editor user and add role
-ddev drush user:create ContentEditor --mail='example@example.com' --password='P@ssw0rd' && ddev drush user:role:add 'content_editor' ContentEditor
+ddev drush user:create ContentEditor --mail='example@example.com' --password='P@ssw0rd'
+ddev drush user:role:add 'content_editor' ContentEditor
 
 # Create one time login link to log into the site as an admin.
 ddev drush uli
@@ -26,7 +27,7 @@ ddev drush uli
 
 ## Running the migration
 ```bash
-ddev drush mim csv_source_node_content --execute-dependencies && ddev drush cr
+ddev drush mim dts_node_content --execute-dependencies && ddev drush cr
 ```
 
 ## Other Details

@@ -11,7 +11,7 @@ module:
   ckeditor5: 0
   config: 0
   contact: 0
-  content_migration: 0
+  dts_content_migration: 0
   contextual: 0
   datetime: 0
   dblog: 0

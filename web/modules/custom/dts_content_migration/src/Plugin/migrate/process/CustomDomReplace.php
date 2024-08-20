@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\content_migration\Plugin\migrate\process;
+namespace Drupal\dts_content_migration\Plugin\migrate\process;
 
 use Drupal\Component\Utility\Html;
 use Drupal\migrate\MigrateExecutableInterface;
@@ -28,7 +28,7 @@ class CustomDomReplace extends ProcessPluginBase {
     $xpath = new \DOMXPath($dom);
 
     // Get image file path for current row.
-    $file_path = $row->getDestination()['image_file_path'];
+    $file_path = $row->getDestination()['pseudo_image_file_path'];
 
     // Load all image tags and set their src tag to the image file path.
     $img_elements = $xpath->query('//img');

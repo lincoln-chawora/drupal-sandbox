@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\content_migration\Plugin\migrate\process;
+namespace Drupal\dts_content_migration\Plugin\migrate\process;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -65,6 +65,7 @@ class ExistingTerm extends ProcessPluginBase implements ContainerFactoryPluginIn
       return TRUE;
     }
 
+    // If a term with the given name exists load it, otherwise create a new term and then load it.
     if ($tid = $this->getTidByName($term_name, $vocabulary)) {
       $term = Term::load($tid);
     }
