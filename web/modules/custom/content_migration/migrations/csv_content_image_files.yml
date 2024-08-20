@@ -22,6 +22,10 @@ process:
         - id
         - type
         - constants/image_suffix
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Cannot import empty image filename.'
   pseudo_destination_path:
     -
       plugin: concat
@@ -31,12 +35,13 @@ process:
   uri:
     -
       plugin: skip_on_empty
-      method: process
-      source: '@img_src_values/src' # The image url in the data row.
+      method: row
+      source: '@img_src_values/src'
+      message: 'No uri found'
     -
       plugin: file_copy
       source:
-        - '@img_src_values/src' # The image url in the data row.
+        - '@img_src_values/src'
         - '@pseudo_destination_path'
       file_exists: rename
       move: false

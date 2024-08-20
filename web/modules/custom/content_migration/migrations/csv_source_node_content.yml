@@ -8,29 +8,35 @@ process:
   type: type
   title: title
   field_date/value:
-    plugin: format_date
-    source: date
-    from_format: 'm/d/Y'
-    to_format: 'Y-m-d'
-    settings:
-      validate_format: false # Fix the issue with the incorrect date format
+    - plugin: format_date
+      source: date
+      from_format: 'm/d/Y'
+      to_format: 'Y-m-d'
+      settings:
+        validate_format: false
+  image_file_id:
+    plugin: migration_lookup
+    migration: csv_source_image_files
+    source: id
+  image_file_uri:
+    plugin: entity_value
+    source: '@image_file_id'
+    entity_type: file
+    field_name: uri
+  image_file_path:
+    plugin: file_uri_to_url
+    source: '@image_file_uri'
   body/value:
     -
-      plugin: dom
-      method: import
+      plugin: custom_dom_replace
       source: content
-    -
-      plugin: dom_remove
-      selector: //script
-    -
-      plugin: dom
-      method: export
+  body/format:
+    plugin: default_value
+    default_value: basic_html
   field_category:
     -
-      plugin: existing_term # @TODO:: THIS HAS CODE TO BE REFACTORED.
-      # Destination (Drupal) vocabulary name
+      plugin: existing_term
       vocabulary: tags
-      # Source query should return term name
       source: category
     -
       plugin: skip_on_empty

@@ -22,7 +22,7 @@ use Drupal\migrate_plus\Plugin\migrate\process\DomProcessBase;
  *       method: import
  *       source: text_field
  *     -
- *       plugin: dom_select
+ *       plugin: custom_dom_select
  *       selector: //img
  * @endcode
  *
@@ -45,10 +45,6 @@ class CustomDomSelect extends DomProcessBase {
       foreach ($element->attributes as $attr) {
         $values[$attr->name] = $attr->value;
       }
-    }
-
-    if (empty($values['src'])) {
-      $values['src'] = ''; // Or handle this case as appropriate
     }
 
     return $values;
