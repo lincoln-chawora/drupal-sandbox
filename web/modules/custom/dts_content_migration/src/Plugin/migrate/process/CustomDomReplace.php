@@ -42,6 +42,35 @@ class CustomDomReplace extends ProcessPluginBase {
       $script->parentNode->removeChild($script);
     }
 
+    $iframes = $xpath->query('//iframe');
+    $video_ids = [];
+    $walking_dead = [];
+    foreach ($iframes as $iframe) {
+      $iframe_src = $iframe->getAttribute('src');
+      // Regular expression to match the value between 'embed/' and '?si'
+      preg_match('/embed\/(.*?)\?si/', $iframe_src, $matches);
+
+      // Extracted value
+      $video_ids[] = $matches[1];
+      $walking_dead[] = $iframe;
+    }
+
+    foreach ($walking_dead as $key => $node) {
+      // Get the parent node.
+      $parentNode = $node->parentNode;
+
+      if ($video_ids) {
+        // Replace iframe with <drupal-url> element to host the youtube url using the video id.
+        $drupal_url_element = $node->ownerDocument->createElement('drupal-url', "\u{00A0}");
+        $drupal_url_element->setAttribute('data-embed-url', 'https://www.youtube.com/watch?v=' . $video_ids[$key]);
+        $drupal_url_element->setAttribute('data-url-provider', 'YouTube');
+        $parentNode->replaceChild($drupal_url_element, $node);
+      } else {
+        // Remove the existing node (this deletes the iframe element). This assumes no valid video id was found.
+        $parentNode->removeChild($node);
+      }
+    }
+
     return Html::serialize($dom);
   }
 }
