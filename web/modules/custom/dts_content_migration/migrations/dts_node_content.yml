@@ -50,6 +50,13 @@ process:
     plugin: existing_term
     vocabulary: tags
     source: category
+  status:
+    plugin: if_condition
+    condition: empty
+    source: '@pseudo_validated_date'
+    else_process:
+      plugin: default_value
+      default_value: 0
   # Set revision log message if date is empty.
   revision_log:
     plugin: if_condition

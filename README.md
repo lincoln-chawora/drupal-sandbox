@@ -37,7 +37,7 @@ are as follows:
 
 ```bash
 # username
-example@example.com
+ContentEditor
 
 # Password:
 P@ssw0rd

@@ -11,10 +11,10 @@ module:
   ckeditor5: 0
   config: 0
   contact: 0
-  dts_content_migration: 0
   contextual: 0
   datetime: 0
   dblog: 0
+  dts_content_migration: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
@@ -48,6 +48,7 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  view_unpublished: 0
   views_ui: 0
   views: 10
   minimal: 1000
