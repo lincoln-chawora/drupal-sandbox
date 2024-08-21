@@ -61,7 +61,7 @@ class CustomDomReplace extends ProcessPluginBase {
 
       if ($video_ids) {
         // Replace iframe with <drupal-url> element to host the youtube url using the video id.
-        $drupal_url_element = $node->ownerDocument->createElement('drupal-url', "\u{00A0}");
+        $drupal_url_element = $node->ownerDocument->createElement('drupal-url', "Youtube video");
         $drupal_url_element->setAttribute('data-embed-url', 'https://www.youtube.com/watch?v=' . $video_ids[$key]);
         $drupal_url_element->setAttribute('data-url-provider', 'YouTube');
         $parentNode->replaceChild($drupal_url_element, $node);

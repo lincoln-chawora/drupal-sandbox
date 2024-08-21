@@ -5,6 +5,11 @@ This project requires you to have the following installed on your computer
 - PHP 8.1
 - Composer
 
+
+## Clone repo
+```bash
+git clone git@bitbucket.org:tpximpactdx/technical-challenge-lincoln.git lincoln-drupal-site
+```
 ## Installation & Set up
 
 ```bash
@@ -32,7 +37,7 @@ ddev drush migrate:import dts_node_content --execute-dependencies && ddev drush 
 
 ## Other Details
 To log into the site as a content editor use `ddev drush uli --uid=2` to generate a one time login link or
-go to [https://drupal-test-site.ddev.site/user/login](https://drupal-test-site.ddev.site/user/login) The login details
+go to [https://lincoln-drupal-site.ddev.site/user/login](https://lincoln-drupal-site.ddev.site/user/login) The login details
 are as follows:
 
 ```bash
