@@ -1,8 +1,8 @@
-id: dts_image_files
+id: lds_image_files
 label: 'Create file entities for images and add them into images directory.'
 source:
   plugin: csv
-  path: modules/custom/dts_content_migration/sources/task-migration-content.csv
+  path: modules/custom/lds_content_migration/sources/task-migration-content.csv
   ids: [id]
   constants:
     DRUPAL_FILE_DIRECTORY: 'public://images/'

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dts_content_migration\Plugin\migrate\process;
+namespace Drupal\lds_content_migration\Plugin\migrate\process;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;

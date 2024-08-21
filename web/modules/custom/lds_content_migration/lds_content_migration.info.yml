@@ -1,10 +1,11 @@
-type: module
 name: 'Drupal Test Site Content Migration'
 description: 'Content Migration from CSV file'
-package: Understand Drupal
+package: Lincoln Drupal Site
+type: module
 core_version_requirement: ^10
 dependencies:
   - drupal:migrate
   - drupal:migrate_plus
   - drupal:migrate_conditions
   - drupal:migrate_file
+  - drupal:url_embed

@@ -2,7 +2,7 @@ _core:
   default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
 langcode: en
 uuid: 4343fd87-604f-4f21-93f8-73b53738536a
-name: 'Drush Site-Install'
+name: 'Lincoln Drupal Site'
 mail: admin@example.com
 slogan: ''
 page:

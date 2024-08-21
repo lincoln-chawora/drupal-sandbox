@@ -1,8 +1,8 @@
-id: dts_node_content
+id: lds_node_content
 label: 'Create node entities based on each row of CSV file.'
 source:
   plugin: csv
-  path: modules/custom/dts_content_migration/sources/task-migration-content.csv
+  path: modules/custom/lds_content_migration/sources/task-migration-content.csv
   ids: [id]
   constants:
     log_message: 'Error migrating date due to invalid date format: '
@@ -25,7 +25,7 @@ process:
   # Get image file id from the image files migration.
   pseudo_image_file_id:
     plugin: migration_lookup
-    migration: dts_image_files
+    migration: lds_image_files
     source: id
   # Get the file entities uri.
   pseudo_image_file_uri:
@@ -50,6 +50,7 @@ process:
     plugin: existing_term
     vocabulary: tags
     source: category
+  # Unpublish content if date is invalid.
   status:
     plugin: if_condition
     condition: empty
@@ -71,5 +72,5 @@ destination:
   plugin: 'entity:node'
 migration_dependencies:
   required:
-    - dts_image_files
+    - lds_image_files
   optional: []

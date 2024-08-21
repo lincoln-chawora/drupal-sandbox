@@ -32,7 +32,11 @@ ddev drush uli
 
 ## Running the migration
 ```bash
-ddev drush migrate:import dts_node_content --execute-dependencies && ddev drush cr
+ddev drush migrate:import lds_node_content --execute-dependencies && ddev drush cr
+```
+To roll back the migrations and view the site without te migrated content run the following commands
+```bash
+ddev drush migrate:rollback lds_image_files && ddev drush migrate:rollback lds_node_content
 ```
 
 ## Other Details
