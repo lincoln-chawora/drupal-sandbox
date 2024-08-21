@@ -4,6 +4,7 @@
 /vendor/
 /private/
 web/*
+!web/Lincoln-Literatur-Poster.html
 !web/.htaccess
 !web/modules
 web/modules/contrib
