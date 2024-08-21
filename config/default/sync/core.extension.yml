@@ -11,16 +11,18 @@ module:
   ckeditor5: 0
   config: 0
   contact: 0
-  content_migration: 0
   contextual: 0
   datetime: 0
   dblog: 0
+  dts_content_migration: 0
   dynamic_page_cache: 0
   editor: 0
+  embed: 0
   field: 0
   field_ui: 0
   file: 0
   filter: 0
+  filter_empty_tags: 0
   help: 0
   history: 0
   image: 0
@@ -28,6 +30,9 @@ module:
   menu_link_content: 0
   menu_ui: 0
   migrate: 0
+  migrate_conditions: 0
+  migrate_devel: 0
+  migrate_file: 0
   migrate_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
@@ -44,11 +49,13 @@ module:
   text: 0
   toolbar: 0
   update: 0
+  url_embed: 0
   user: 0
+  view_unpublished: 0
   views_ui: 0
   views: 10
-  standard: 1000
+  minimal: 1000
 theme:
   olivero: 0
   claro: 0
-profile: standard
+profile: minimal

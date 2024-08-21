@@ -1,0 +1,8 @@
+uuid: 419ce961-137c-4ade-8fc1-7fe8d5e9ba00
+langcode: en
+status: true
+dependencies: {  }
+id: american
+label: American
+locked: false
+pattern: m/d/Y

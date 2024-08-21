@@ -1,0 +1,47 @@
+id: dts_image_files
+label: 'Create file entities for images and add them into images directory.'
+source:
+  plugin: csv
+  path: modules/custom/dts_content_migration/sources/task-migration-content.csv
+  ids: [id]
+  constants:
+    DRUPAL_FILE_DIRECTORY: 'public://images/'
+    image_suffix: '.jpg'
+process:
+  # Get image src values from csv content field.
+  pseudo_img_src_values:
+    - plugin: dom
+      method: import
+      source: content
+    - plugin: custom_dom_select
+      selector: //img
+  # Create file name using id and node type, also append file extension to file name.
+  pseudo_destination_filename:
+    -
+      plugin: concat
+      source:
+        - id
+        - type
+        - constants/image_suffix
+  # Create destination path to be used by url combining public directory with file name.
+  pseudo_destination_path:
+    -
+      plugin: concat
+      source:
+        - constants/DRUPAL_FILE_DIRECTORY
+        - '@pseudo_destination_filename'
+  # Copy file into set directory.
+  uri:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: '@pseudo_img_src_values/src'
+    -
+      plugin: file_copy
+      source:
+        - '@pseudo_img_src_values/src'
+        - '@pseudo_destination_path'
+      file_exists: rename
+      move: false
+destination:
+  plugin: 'entity:file'
