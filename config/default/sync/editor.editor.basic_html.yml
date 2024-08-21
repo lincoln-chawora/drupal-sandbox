@@ -28,6 +28,7 @@ settings:
       - code
       - '|'
       - sourceEditing
+      - urlembed
   plugins:
     ckeditor5_heading:
       enabled_headings:

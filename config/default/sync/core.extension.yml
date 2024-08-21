@@ -17,6 +17,7 @@ module:
   dts_content_migration: 0
   dynamic_page_cache: 0
   editor: 0
+  embed: 0
   field: 0
   field_ui: 0
   file: 0
@@ -47,6 +48,7 @@ module:
   text: 0
   toolbar: 0
   update: 0
+  url_embed: 0
   user: 0
   view_unpublished: 0
   views_ui: 0
