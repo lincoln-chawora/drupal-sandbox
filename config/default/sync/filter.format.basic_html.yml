@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - editor
+    - filter_empty_tags
     - url_embed
 _core:
   default_config_hash: mclCbTlJwWJORez4Y1eX2MqA0aGjSMAoJb3TaBABcK8
@@ -29,6 +30,16 @@ filters:
     status: true
     weight: 8
     settings: {  }
+  filter_empty_tags:
+    id: filter_empty_tags
+    provider: filter_empty_tags
+    status: true
+    weight: 0
+    settings:
+      do_not_consider_empty: 'button canvas drupal-media drupal-entity iframe object script svg textarea td th'
+      filter_spaces: true
+      filter_nbsp: true
+      filter_br: true
   filter_html:
     id: filter_html
     provider: filter

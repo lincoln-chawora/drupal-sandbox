@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dae983003343f3a4a25d20efba5b4a55",
+    "content-hash": "85383d1c9ca177ab68e904c8a8dd5c30",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1041,6 +1041,54 @@
             "homepage": "https://www.drupal.org/project/embed",
             "support": {
                 "source": "https://git.drupalcode.org/project/embed"
+            }
+        },
+        {
+            "name": "drupal/filter_empty_tags",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filter_empty_tags.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filter_empty_tags-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "8c55390f26847bfef59cee6e7070c3f70f67a3e9"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1689683303",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "danflanagan8",
+                    "homepage": "https://www.drupal.org/user/3615359"
+                },
+                {
+                    "name": "Dom.",
+                    "homepage": "https://www.drupal.org/user/801982"
+                }
+            ],
+            "description": "A text format filter to recursively remove empty tags in your HTML content.",
+            "homepage": "https://www.drupal.org/project/filter_empty_tags",
+            "support": {
+                "source": "https://git.drupalcode.org/project/filter_empty_tags"
             }
         },
         {
